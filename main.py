@@ -2,9 +2,8 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-@app.get("/")
-async def hello():
-    return {"message": "Hello World!"}
+import routes  # avoid circular imports. make routing neater :)
+
 
 if __name__ == "__main__":
     import uvicorn
