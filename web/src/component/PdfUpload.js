@@ -25,9 +25,6 @@ const PdfUpload = () => {
                     ref={fileInputRef}
                 />
             </div>
-            {selectedFile && (
-                <p style={{ margin: '5px 0 0' }}>Selected file: {selectedFile.name}</p>
-            )}
         </div>
     );
 };
