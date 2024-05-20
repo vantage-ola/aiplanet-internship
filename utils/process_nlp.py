@@ -1,7 +1,6 @@
 from decouple import config
 from llama_index.llms.gemini import Gemini
 from llama_index.core.llms import ChatMessage
-from extract_text import extract_text
 
 
 GOOGLE_API_KEY= config('GOOGLE_API_KEY')

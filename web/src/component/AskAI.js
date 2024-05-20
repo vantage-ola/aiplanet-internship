@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const AskAI = () => {
     const [messages, setMessages] = useState([]);
@@ -8,16 +9,19 @@ const AskAI = () => {
         setInputText(e.target.value);
     };
 
-    const handleSendMessage = () => {
+    const handleSendMessage = async () => {
         if (inputText.trim() !== '') {
             const newUserMessage = { sender: 'user', text: inputText };
             setMessages([...messages, newUserMessage]);
             setInputText('');
-            // Simulate bot reply after a short delay
-            setTimeout(() => {
-                const newBotMessage = { sender: 'bot', text: `You said: "${inputText}". This is a reply from the backend.` };
-                setMessages([...messages, newUserMessage, newBotMessage]);
-            }, 1000);
+
+            try {
+                const response = await axios.post('http://localhost:8000/handle', { chat_message: inputText });
+                const newBotMessage = { sender: 'bot', text: response.data.message };
+                setMessages(prevMessages => [...prevMessages, newBotMessage]);
+            } catch (error) {
+                console.error('Error sending message:', error);
+            }
         }
     };
 
@@ -42,7 +46,7 @@ const AskAI = () => {
                     type="text"
                     value={inputText}
                     onChange={handleInputChange}
-                    onKeyPress={handleKeyPress} // Add event listener for Enter key press
+                    onKeyPress={handleKeyPress}
                     placeholder="Type your message..."
                 />
                 <button onClick={handleSendMessage}>Send</button>
