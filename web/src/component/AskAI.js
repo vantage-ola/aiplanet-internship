@@ -33,7 +33,7 @@ const AskAI = () => {
 
     return (
         <div className="chat-container">
-            <h2>Chat</h2>
+            <h2>Upload, Submit and AskAI :)</h2>
             <div className="message-container">
                 {messages.map((message, index) => (
                     <div key={index} className={`message ${message.sender}`}>

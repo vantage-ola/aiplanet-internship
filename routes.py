@@ -34,4 +34,5 @@ async def respond_chat(message: ChatMessage):
     bot_answer = answer_text_question(extracted_text, message.chat_message)
     #response_message = f"You said: '{message.chat_message}'. This is a reply from the backend."
     response_message = f"{bot_answer}"
+    
     return {"message": response_message}

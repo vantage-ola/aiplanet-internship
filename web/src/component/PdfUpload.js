@@ -52,9 +52,18 @@ const PdfUpload = () => {
                     ref={fileInputRef}
                 />
             </div>
-            {selectedFile && <div>Selected file: {selectedFile.name}</div>}
+            
+            <div className='submit'>
             <button onClick={handleFormSubmit}>Submit</button>
+            </div>
+
+            <div className='file'>
             {uploadStatus && <div>{uploadStatus}</div>}
+            {selectedFile && <div>{selectedFile.name}</div>}    
+            </div>
+
+
+
         </div>
     );
 };

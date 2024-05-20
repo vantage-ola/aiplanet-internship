@@ -12,43 +12,32 @@
 .chat-container {
     flex: 1;
     /* Chat takes up most of the space */
-    border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: #fff;
-    padding: 20px;
+    padding: 50px;
 }
 
 /* Styles for the message container */
 .message-container {
     height: 400px;
-    /* Adjust height as needed */
     overflow-y: scroll;
-    /* Enable scrolling */
     border-bottom: 1px solid #ddd;
-    /* Optional bottom border */
     padding-bottom: 10px;
 
-    /* Styles for the scrollbar */
     scrollbar-width: thin;
-    /* Adjust scrollbar thickness */
     scrollbar-color: rgba(100, 100, 100, 0.5) rgba(0, 0, 0, 0);
-    /* Customize scrollbar track and thumb colors */
 
-    /* Optional: Hide scrollbar until needed */
     &::-webkit-scrollbar {
         display: none;
     }
 
-    /* Optional: Show scrollbar when hovering or scrolling */
     &::-webkit-scrollbar:hover {
         display: block;
     }
 
     &::-webkit-scrollbar-thumb {
         background: rgba(100, 100, 100, 0.5);
-        /* Customize thumb color */
         border-radius: 6px;
-        /* Add rounded corners */
     }
 }
 
@@ -124,7 +113,7 @@
     border: 2px dashed #aaa;
     padding: 20px;
     border-radius: 10px;
-    width: 200px;
+    width: 150px;
     cursor: pointer;
     position: absolute;
     /* Absolute positioning for top right corner */
@@ -139,6 +128,57 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     /* Subtle shadow for upload button */
 }
+
+.submit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #aaa;
+    padding: 20px;
+    border-radius: 10px;
+    width: 150px;
+    position: absolute;
+    /* Absolute positioning for top right corner */
+    top: 20px;
+    /* Adjust for top placement */
+    right: 14.5rem;
+
+    /* Adjust for right placement */
+    z-index: 10;
+    /* Ensure upload button stays on top */
+    background-color: #3b82f6;
+    /* White background for upload button */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for upload button */
+}
+
+.submit button {
+    padding: 2px 20px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: px;
+    cursor: pointer;
+}
+
+
+.file {
+    background-color: orange;
+    top: 20px;
+    right: 27.8rem;
+    border: 2px dashed #aaa;
+    padding: 30px;
+    border-radius: 10px;
+    width: 150px;
+    position: absolute;
+    height: 0px;
+    /* Minimum height */
+    overflow-y: scroll;
+    /* Add scrollbar if content overflows */
+
+}
+
 
 .pdf-upload-container:hover {
     background-color: #f0f0f0;
